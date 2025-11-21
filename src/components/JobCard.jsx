@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom'
+
 export default function JobCard({ job, onApply }) {
   return (
     <div className="bg-slate-800/60 border border-blue-500/20 rounded-2xl p-5 hover:border-blue-500/40 transition-colors">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-white font-semibold text-lg">{job.title}</h3>
+          <Link to={`/jobs/${job.id}`} className="text-white font-semibold text-lg hover:underline">{job.title}</Link>
           <p className="text-blue-200/90">{job.company} • {job.location}</p>
           <div className="mt-2 flex flex-wrap gap-2">
             {job.tags?.slice(0,5).map((t) => (
